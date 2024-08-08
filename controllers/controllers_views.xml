@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="contact_menu" model="website.menu">
+        <field name="name">Contacts</field>
+        <field name="url">/Contacts</field>
+        <field name="parent_id" ref="website.main_menu"/>
+    </record>
+    <template id="contact_details_template" name="Contact Details">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+                    <br/>
+                    <center>
+                        <h3>Contact Details</h3>
+                    </center>
+                    <br/>
+                    <table class="table-stripped table">
+                        <thead style="font-size: 23px;">
+                            <tr>
+                                <h6>
+                                    <b>
+                                        <th>Name</th>
+                                        <th>Mobile</th>
+                                        <th>Email</th>
+                                        <th>Job Position</th>
+                                    </b>
+                                </h6>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="partners" t-as="partner">
+                                <tr>
+                                    <td>
+                                        <span t-esc="partner.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="partner.mobile"/>
+                                    </td>                                
+                                    <td>
+                                        <span t-esc="partner.email"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="partner.function"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

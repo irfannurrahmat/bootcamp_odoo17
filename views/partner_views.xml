@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="instruktur_inherit_res_partner" model="ir.ui.view">
+        <field name="name">instruktur.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Session">
+                    <group>
+                        <field name="instructor" />
+                    </group>
+                    <group name="sesimengajar" string="Daftar Sesi Mengajar" invisible="not instructor">
+                        <field name="session_line" nolabel="1" colspan="2"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="training_instructor_action" model="ir.actions.act_window">
+        <field name="name">Instructor</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('instructor', '=', True)]</field>
+        <field name="context">{'default_instructor': True}</field>
+    </record>
+
+
+
+</odoo>
