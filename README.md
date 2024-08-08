@@ -1,2 +1,4 @@
-# odoo_training_docker
 # bootcamp_odoo17
+
+
+# Irfan Nurrahmat
